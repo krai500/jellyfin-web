@@ -1024,6 +1024,34 @@ function renderDetails(page, instance, item, apiClient, context) {
 
     renderTags(page, item);
     renderSeriesAirTime(page, item);
+    renderFilePath(page, item);
+}
+
+function renderFilePath(page, item) {
+    const filePathSection = page.querySelector('.itemFilePath');
+    if (!filePathSection) return;
+
+    const path = item.Path;
+    if (path) {
+        filePathSection.querySelector('.filePathText').textContent = path;
+        filePathSection.classList.remove('hide');
+
+        const btn = filePathSection.querySelector('.btnCopyPath');
+        btn.addEventListener('click', () => {
+            navigator.clipboard.writeText(path).then(() => {
+                const icon = btn.querySelector('.btnCopyPath-icon');
+                const label = btn.querySelector('.btnCopyPath-label');
+                icon.textContent = 'check';
+                label.textContent = 'Copied!';
+                setTimeout(() => {
+                    icon.textContent = 'content_copy';
+                    label.textContent = 'Copy';
+                }, 2000);
+            });
+        });
+    } else {
+        filePathSection.classList.add('hide');
+    }
 }
 
 function enableScrollX() {
