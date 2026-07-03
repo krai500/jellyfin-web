@@ -1,0 +1,47 @@
+/* Import the base theme */
+@use '../_base/theme';
+
+/* Scrollbar styling */
+* {
+    scrollbar-color: #3a3a42 #0d0d0f;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: #28282f;
+}
+
+::-webkit-scrollbar-thumb:horizontal,
+::-webkit-scrollbar-thumb:vertical {
+    background: #4a4a56;
+}
+
+/* Card placeholder background color variants */
+.defaultCardBackground1 {
+    background-color: #2a1f0e;
+}
+
+.defaultCardBackground2 {
+    background-color: #1e1a2e;
+}
+
+.defaultCardBackground3 {
+    background-color: #1a2420;
+}
+
+.defaultCardBackground4 {
+    background-color: #2e1e1a;
+}
+
+.defaultCardBackground5 {
+    background-color: #1a1e2e;
+}
+
+/* Detail ribbon on item details pages */
+.detailRibbon {
+    background: rgba(24 24 30 / 0.85);
+    backdrop-filter: blur(8px);
+
+    .layout-tv & {
+        background: none;
+    }
+}
